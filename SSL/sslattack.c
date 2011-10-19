@@ -315,7 +315,6 @@ void spoof_dns(char *device)
   
   /* IP header construction */
   /*****************************************************/
-  /******************* FILL IN *************************/
   /******* USE: libnet to construct IP header here ****/
   /*****************************************************/
   libnet_build_ipv4   (   packet_size, 		//56 + 20

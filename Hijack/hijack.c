@@ -1,7 +1,4 @@
 /*****************************************************************
- * File: hijack.c
- * by: <team members>
- * 18-731: Network Security: Miniproject 1
  *
  * Description: Sniffs a packet from a live tcp session and forges
  *              a fake tcp message from it. Then sends the forged
@@ -44,7 +41,6 @@ int main(int argc, char **argv) {
   struct pcap_pkthdr pcap_hdr;       /* Pcap packet header */
 
   /* get a device to sniff on */
-  // device = pcap_lookupdev(errbuf); 
 
   if (device == NULL) {
     printf("pcap_lookupdev: %s\n", errbuf);
@@ -124,7 +120,7 @@ int main(int argc, char **argv) {
 }
 
 
-/*	 Basic setup for packet sniffing. You dont need to modify this. */
+/*	 Basic setup for packet sniffing*/
 pcap_t *set_cap_dev (char *device, char *filter) {
   unsigned int network;           /* Filter setting */
   unsigned int netmask;           /* Filter setting */
@@ -162,7 +158,7 @@ pcap_t *set_cap_dev (char *device, char *filter) {
   return capdev;
 }
 
-/* This is only partial function. You can extend it to help your
+/* Partial function, extend it to help your
  * debugging if you want. */
 void print_packet(const u_char *packet) {
   /* Take a look at header files in /usr/include/libnet/ and
@@ -199,8 +195,6 @@ int analyze_packet(const u_char *packet, const char *andrew_id) {
   tcp = (struct tcphdr *) (packet + offset + LIBNET_IPV4_H);
   data = (char *)(packet + offset + LIBNET_IPV4_H + LIBNET_TCP_H);
 
-  /***********************************************/
-  /****************  FILL IN *********************/
   /**** Extract sequence no and ack no. from  ****/
   /**** the ACK packet from server.           ****/
 
